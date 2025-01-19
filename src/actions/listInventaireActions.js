@@ -5,7 +5,7 @@ export const listInventaire = ( title,quantitySt,unit,
     dispatch({ type: 'PLACE_LISTINVENTAIRE_REQUEST' });
     const currentUser = getState().loginUserReducer.currentUser;
     try {
-        const response = await axios.post('http://localhost:5000/api/inventaire/listInventaire', {  title ,quantitySt,unit,
+        const response = await axios.post('https://afgmvmapi.onrender.com/api/inventaire/listInventaire', {  title ,quantitySt,unit,
         categorie,location,quantitySecurity,dispositionA,dispositionB,articleType,typeMachine,imagePath,currentUser});
         console.log(response);
         dispatch({ type: 'PLACE_LISTINVENTAIRE_SUCCESS' });
@@ -22,7 +22,7 @@ export const getUserOrders = () => async (dispatch, getState) => {
     dispatch({ type: 'GET_USER_ORDERS_REQUEST' });
 
     try {
-        const response = await axios.post('https://topclassapi2.onrender.com/api/orders/getuserorders', { currentUser });
+        const response = await axios.post('https://afgmvmapi.onrender.com/api/orders/getuserorders', { currentUser });
         dispatch({ type: 'GET_USER_ORDERS_SUCCESS', payload: response.data });
     } catch (error) {
         dispatch({ 
