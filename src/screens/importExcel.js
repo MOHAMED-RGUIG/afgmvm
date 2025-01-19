@@ -19,7 +19,7 @@ function ImportExcel() {
         formData.append('file', file);
 
         try {
-            const response = await axios.post('http://localhost:5000/api/excel/import-excel', formData, {
+            const response = await axios.post('https://afgmvmapi.onrender.com/api/excel/import-excel', formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
             alert(response.data.message);
