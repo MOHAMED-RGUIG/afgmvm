@@ -16,7 +16,7 @@ function Importcsv() {
         formData.append('file', file);
 
         try {
-            const response = await axios.post('http://localhost:5000/api/csv/importcsv', formData, {
+            const response = await axios.post('https://afgmvmapi.onrender.com/api/csv/importcsv', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
