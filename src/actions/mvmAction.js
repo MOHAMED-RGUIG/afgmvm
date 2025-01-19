@@ -4,7 +4,7 @@ export const creationMvm = ( typeMvm,
     dispatch({ type: 'PLACE_CREATEMVM_REQUEST' });
     const currentUser = getState().loginUserReducer.currentUser;
     try {
-        const response = await axios.post('http://localhost:5000/api/mvm/creationMvm', {  typeMvm,
+        const response = await axios.post('https://afgmvmapi.onrender.com/api/mvm/creationMvm', {  typeMvm,
         quantityMvm,referenceArticle,nOrdre,currentUser});
         console.log(currentUser);
         console.log(response);
@@ -20,7 +20,7 @@ export const getRefMvm= () => async (dispatch) => {
     dispatch({ type: 'GET_REFMVM_REQUEST' });
 
     try {
-        const response = await axios.get(`http://localhost:5000/api/mvm/getRefMvm`, {
+        const response = await axios.get(`https://afgmvmapi.onrender.com/api/mvm/getRefMvm`, {
            
         });
         dispatch({ type: 'GET_REFMVM_SUCCESS', payload: response.data });
@@ -36,7 +36,7 @@ export const getQtStByRef = (reference) => async (dispatch) => {
     dispatch({ type: 'GET_QTSTBYREF_REQUEST' });
 
     try {
-        const response = await axios.get(`http://localhost:5000/api/mvm/qtstbyref`, {
+        const response = await axios.get(`https://afgmvmapi.onrender.com/api/mvm/qtstbyref`, {
             params: { reference }, // Passer la référence comme paramètre
         });
         dispatch({ type: 'GET_QTSTBYREF_SUCCESS', payload: response.data });
@@ -52,7 +52,7 @@ export const getAllMouvements = () => async dispatch => {
     dispatch({ type: 'GET_MOUVEMENTS_REQUEST' });
 
     try {
-        const response = await axios.get(`http://localhost:5000/api/mvm/getallmouvements`);
+        const response = await axios.get(`https://afgmvmapi.onrender.com/api/mvm/getallmouvements`);
         dispatch({ type: 'GET_MOUVEMENTS_SUCCESS', payload: response.data });
     } catch (error) {
         dispatch({ type: 'GET_MOUVEMENTS_FAILED', payload: error.message });
@@ -63,7 +63,7 @@ export const getAllMouvementsGraphique = (reference = '') => async dispatch => {
   dispatch({ type: 'GET_MOUVEMENTS_REQUEST' });
 
   try {
-      const response = await axios.get(`http://localhost:5000/api/mvm/getallmouvementsgraphique`, {
+      const response = await axios.get(`https://afgmvmapi.onrender.com/api/mvm/getallmouvementsgraphique`, {
           params: { reference }, // Passer la référence comme paramètre
       });
       dispatch({ type: 'GET_MOUVEMENTS_SUCCESS', payload: response.data });
@@ -77,7 +77,7 @@ export const updateMvm = (idMvm, updatedData) => async (dispatch, getState) => {
     dispatch({ type: 'UPDATE_MOUVEMENT_REQUEST' });
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/mvm/updatemouvements/${idMvm}`,
+        `https://afgmvmapi.onrender.com/api/mvm/updatemouvements/${idMvm}`,
         updatedData
       );
   
@@ -107,7 +107,7 @@ export const updateMvm = (idMvm, updatedData) => async (dispatch, getState) => {
 export const deleteMvm = (idMvm) => async (dispatch) => {
     try {
       dispatch({ type: 'DELETE_MOUVEMENT_REQUEST' });
-      await axios.delete(`http://localhost:5000/api/mvm/deletemouvement/${idMvm}`);
+      await axios.delete(`https://afgmvmapi.onrender.com/api/mvm/deletemouvement/${idMvm}`);
       dispatch({ type: 'DELETE_MOUVEMENT_SUCCESS', payload: idMvm });
     } catch (error) {
       dispatch({
