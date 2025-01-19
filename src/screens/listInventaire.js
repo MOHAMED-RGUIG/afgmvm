@@ -94,7 +94,7 @@ const articleTypes = [    "E:Électronique",
 
         try {
             // Remplacez par l'URL de votre backend pour uploader l'image
-            const response = await axios.post("http://localhost:5000/upload", formData, {
+            const response = await axios.post("https://afgmvmapi.onrender.com/upload", formData, {
                 headers: { "Content-Type": "multipart/form-data" },
             });
             setImagePath(response.data.path); // Le chemin renvoyé par le serveur
