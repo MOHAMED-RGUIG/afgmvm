@@ -3,7 +3,7 @@ export const getAllMouvements = () => async dispatch => {
     dispatch({ type: 'GET_MOUVEMENTS_REQUEST' });
 
     try {
-        const response = await axios.get(`http://localhost:5000/api/mvm/getallmouvements`, {
+        const response = await axios.get(`https://afgmvmapi.onrender.com/api/mvm/getallmouvements`, {
            
         });
         dispatch({ type: 'GET_MOUVEMENTS_SUCCESS', payload: response.data });
