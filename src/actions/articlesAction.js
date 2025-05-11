@@ -6,7 +6,7 @@ export const getAllArticles = () => async dispatch => {
     dispatch({ type: 'GET_ARTICLES_REQUEST' });
 
     try {
-        const response = await axios.get(`https://afgmvmapi.onrender.com/api/articles/getallarticles`, {
+        const response = await axios.get(`http://localhost:5000/api/articles/getallarticles`, {
            
         });
         dispatch({ type: 'GET_ARTICLES_SUCCESS', payload: response.data });
@@ -19,7 +19,7 @@ export const updateArticle = (idArticle, updatedData) => async (dispatch, getSta
     dispatch({ type: 'UPDATE_ARTICLE_REQUEST' });
     try {
       const response = await axios.put(
-        `https://afgmvmapi.onrender.com/api/articles/updatearticles/${idArticle}`,
+        `http://localhost:5000/api/articles/updatearticles/${idArticle}`,
         updatedData
       );
   
@@ -67,7 +67,7 @@ export const getAllImgProducts = () => async dispatch => {
 export const deleteArticle = (idArticle) => async (dispatch) => {
   try {
     dispatch({ type: 'DELETE_ARTICLE_REQUEST' });
-    await axios.delete(`https://afgmvmapi.onrender.com/api/articles/deletearticle/${idArticle}`);
+    await axios.delete(`http://localhost:5000/api/articles/deletearticle/${idArticle}`);
     dispatch({ type: 'DELETE_ARTICLE_SUCCESS', payload: idArticle });
   } catch (error) {
     dispatch({
