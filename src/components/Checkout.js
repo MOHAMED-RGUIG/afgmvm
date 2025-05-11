@@ -22,7 +22,7 @@ function Checkout({     title,quantitySt,unit,
     function tokenHandler() {
         
         dispatch(listInventaire( title,quantitySt,unit,
-            categorie,location,quantitySecurity,dispositionA,dispositionB,articleType,typeMachine,imagePath));
+            categorie,location,quantitySecurity,dispositionA,dispositionB,articleType,typeMachine,imagePath,currentUser));
         //localStorage.removeItem('cartItems');
         toast.success('Your order is added successfully!', {
             position: 'bottom-right',
