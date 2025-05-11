@@ -84,7 +84,7 @@ const articleTypes = [    "E:Électronique",
 
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     const dispatch = useDispatch();
-
+/*
     const handleImageUpload = async (e) => {
         const file = e.target.files[0];
         if (!file) return;
@@ -102,7 +102,26 @@ const articleTypes = [    "E:Électronique",
         } catch (error) {
             console.error("Erreur lors de l'upload de l'image :", error);
         }
-    };
+    };*/
+const handleImageUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const formData = new FormData();
+    formData.append("image", file);
+
+    try {
+        const response = await axios.post("http://localhost:5000/upload", formData, {
+            headers: { "Content-Type": "multipart/form-data" },
+        });
+
+        setImagePath(response.data.path); // Lien Cloudinary
+        setImage(response.data.path);     // pour l'afficher immédiatement
+
+    } catch (error) {
+        console.error("Erreur lors de l'upload de l'image :", error);
+    }
+};
 
 
 
