@@ -20,9 +20,7 @@ function Checkout({     title,quantitySt,unit,
 
 
     function tokenHandler() {
-        if (  title.trim() && quantitySt.trim() && unit.trim() && 
-        categorie.trim() && location.trim()  && quantitySecurity.trim() && dispositionA.trim() && dispositionB.trim()
-         && articleType.trim() && typeMachine.trim() && imagePath.trim() ) {
+        
         dispatch(listInventaire( title,quantitySt,unit,
             categorie,location,quantitySecurity,dispositionA,dispositionB,articleType,typeMachine,imagePath));
         //localStorage.removeItem('cartItems');
@@ -35,13 +33,8 @@ function Checkout({     title,quantitySt,unit,
           // Call handleCheckout from Cartscreen
           
 
-    }else{
-        toast.error('Oops ! Merci de remplir le formulaire !', {
-            position: 'bottom-right',
-            autoClose: 3000,
-            hideProgressBar: false
-        })
-    }}
+    
+    }
 
     return (
         <div className='col-12 col-md-12 text-center justify-content-end' >
